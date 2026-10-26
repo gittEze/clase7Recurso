@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Educativa: Grafos</title>
+    <link rel="stylesheet" href="desarrollo.css">
+</head>
+<body>
+    <div id="grid-view" class="view active-view">
+        <header>
+            <h1 id="consigna">Analiza los siguientes grafos y determina sus propiedades. Haz clic en cada uno para responder.</h1>
+        </header>
+        <main class="grid-container" id="cards-container">
+        </main>
+    </div>
+
+    <div id="expanded-view" class="view">
+        <div class="expanded-content">
+            <div class="expanded-left">
+                <img id="expanded-img" src="" alt="Grafo ampliado">
+            </div>
+            <div class="expanded-right">
+                <div id="questions-container"></div>
+                <div id="feedback-message" class="hidden"></div>
+                <button id="btn-continuar">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay-3" class="overlay hidden">
+        <img src="img/imagen3.png" alt="Imagen superpuesta">
+    </div>
+
+    <!-- Reloj en tiempo real -->
+    <div id="real-time-clock"></div>
+
+    <script src="desarrollo.js"></script>
+    <script src="js/keys.js"></script>
+</body>
+</html>

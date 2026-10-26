@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de archivos - Grafos y Árboles</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="main-layout">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <i class="fa-solid fa-hard-drive"></i>
+                    <span>Este Equipo</span>
+                </div>
+                <div class="tree-view" id="sidebar-tree">
+                    <div class="tree-item root-item" data-id="documentos">
+                        <div class="item-content selected open" data-id="documentos">
+                            <i class="fa-solid fa-chevron-down toggle-arrow"></i>
+                            <i class="fa-solid fa-folder-open folder-icon root-icon"></i>
+                            <span class="item-name">Documentos</span>
+                        </div>
+                        <div class="sub-tree open" data-parent="documentos">
+                            <div class="tree-item" data-id="informatica">
+                                <div class="item-content open" data-id="informatica">
+                                    <i class="fa-solid fa-chevron-down toggle-arrow"></i>
+                                    <i class="fa-solid fa-folder folder-icon"></i>
+                                    <span class="item-name">Informática</span>
+                                </div>
+                                <div class="sub-tree open" data-parent="informatica">
+                                    <div class="tree-item" data-id="trabajos">
+                                        <div class="item-content open" data-id="trabajos">
+                                            <i class="fa-solid fa-chevron-down toggle-arrow"></i>
+                                            <i class="fa-solid fa-folder folder-icon"></i>
+                                            <span class="item-name">Trabajos</span>
+                                        </div>
+                                        <div class="sub-tree open" data-parent="trabajos">
+                                            <div class="tree-item" data-id="grafos.docx">
+                                                <div class="item-content file-item" data-id="grafos.docx">
+                                                    <i class="fa-solid fa-file-word file-icon doc-icon"></i>
+                                                    <span class="item-name">grafos.docx</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tree-item" data-id="imagenes">
+                                        <div class="item-content open" data-id="imagenes">
+                                            <i class="fa-solid fa-chevron-down toggle-arrow"></i>
+                                            <i class="fa-solid fa-folder folder-icon"></i>
+                                            <span class="item-name">Imágenes</span>
+                                        </div>
+                                        <div class="sub-tree open" data-parent="imagenes">
+                                            <div class="tree-item" data-id="árbol.png">
+                                                <div class="item-content file-item" data-id="árbol.png">
+                                                    <i class="fa-solid fa-file-image file-icon img-icon"></i>
+                                                    <span class="item-name">árbol.png</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tree-item" data-id="matematica">
+                                <div class="item-content open" data-id="matematica">
+                                    <i class="fa-solid fa-chevron-down toggle-arrow"></i>
+                                    <i class="fa-solid fa-folder folder-icon"></i>
+                                    <span class="item-name">Matemática</span>
+                                </div>
+                                <div class="sub-tree open" data-parent="matematica">
+                                    <div class="tree-item" data-id="ejercicios.pdf">
+                                        <div class="item-content file-item" data-id="ejercicios.pdf">
+                                            <i class="fa-solid fa-file-pdf file-icon pdf-icon"></i>
+                                            <span class="item-name">ejercicios.pdf</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <main class="main-content">
+                <div class="canvas-container">
+                    <svg id="tree-svg" viewBox="0 0 1000 480" preserveAspectRatio="xMidYMid meet">
+                        <g id="connections-layer"></g>
+                        <g id="nodes-layer"></g>
+                    </svg>
+                </div>
+                <div id="live-clock" class="live-clock"></div>
+            </main>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/keys.js"></script>
+</body>
+</html>

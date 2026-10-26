@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #0d1117;
+    color: #f3f4f6;
+}
+
+.app-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-layout {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 28%;
+    min-width: 260px;
+    max-width: 350px;
+    background-color: #161b22;
+    border-right: 1px solid #30363d;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #8b949e;
+    border-bottom: 1px solid #21262d;
+}
+
+.tree-view {
+    padding: 16px;
+}
+
+.tree-item {
+    margin-left: 16px;
+}
+
+.tree-item.root-item {
+    margin-left: 0;
+}
+
+.item-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    font-size: 1rem;
+    color: #c9d1d9;
+    user-select: none;
+    margin: 4px 0;
+}
+
+.item-content:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+.item-content.selected {
+    background-color: rgba(56, 189, 248, 0.18);
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+.toggle-arrow {
+    font-size: 0.75rem;
+    color: #8b949e;
+    transition: transform 0.2s ease;
+    width: 14px;
+    text-align: center;
+}
+
+.item-content.open .toggle-arrow {
+    transform: rotate(0deg);
+}
+
+.item-content:not(.open) .toggle-arrow {
+    transform: rotate(-90deg);
+}
+
+.sub-tree {
+    display: none;
+}
+
+.sub-tree.open {
+    display: block;
+}
+
+.folder-icon { color: #d2a8ff; font-size: 1.1rem; }
+.root-icon { color: #79c0ff; font-size: 1.2rem; }
+.doc-icon { color: #58a6ff; font-size: 1.1rem; }
+.img-icon { color: #7ee787; font-size: 1.1rem; }
+.pdf-icon { color: #ff7b72; font-size: 1.1rem; }
+
+.main-content {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #0d1117;
+    position: relative;
+    overflow: hidden;
+}
+
+.canvas-container {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#tree-svg {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.svg-node {
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.svg-node:hover rect {
+    stroke: #38bdf8;
+    stroke-width: 2px;
+}
+
+.svg-node.selected rect {
+    stroke: #38bdf8;
+    stroke-width: 2.5px;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+}
+
+.svg-node rect {
+    fill: #161b22;
+    stroke: #30363d;
+    stroke-width: 1.5px;
+    rx: 8px;
+    ry: 8px;
+    transition: all 0.2s ease;
+}
+
+.svg-node.root-node rect {
+    fill: #1f242c;
+    stroke: #58a6ff;
+    stroke-width: 2px;
+}
+
+.svg-node text {
+    fill: #f0f6fc;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.svg-edge {
+    stroke: #30363d;
+    stroke-width: 2px;
+    fill: none;
+    transition: stroke 0.48s cubic-bezier(0.4, 0, 0.2, 1), stroke-width 0.48s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, filter 0.48s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.svg-edge.highlighted {
+    stroke: #2da1d4;
+    stroke-width: 3px;
+    filter: drop-shadow(0 0 4px rgba(45, 161, 212, 0.4));
+}
+
+.svg-edge.custom-red {
+    stroke: #cc625b;
+    stroke-width: 3px;
+    filter: drop-shadow(0 0 4px rgba(204, 98, 91, 0.4));
+    cursor: pointer;
+}
+
+.svg-edge.custom-red:hover {
+    stroke: #ff4d4d;
+    stroke-width: 4.5px;
+    filter: drop-shadow(0 0 8px rgba(255, 77, 77, 0.7));
+}
+
+.live-clock {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #8b949e;
+    background-color: rgba(22, 27, 34, 0.85);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    pointer-events: none;
+    z-index: 20;
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        height: 100%;
+        box-shadow: 4px 0 12px rgba(0,0,0,0.5);
+    }
+}
