@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío: Grafos Árbol</title>
+    <link rel="stylesheet" href="juegoLudico.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1 class="app-title">Desafío: Grafos Árbol</h1>
+            <div class="level-indicator">Nivel <span id="current-level-num">1</span></div>
+        </header>
+
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div class="mission-banner" id="mission-text">
+            Cargando consigna...
+        </div>
+
+        <main class="main-section">
+            <div class="graph-card">
+                <svg id="graph-svg" viewBox="0 0 640 380" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+            <aside class="control-panel">
+                <div class="instruction-box">
+                    <h3>Instrucciones</h3>
+                    <p id="instruction-detail"></p>
+                </div>
+                <div class="status-box" id="status-box">
+                    Estado: No es un árbol
+                </div>
+                <button class="continue-btn" id="continue-btn" disabled onclick="handleContinueClick()">Continuar</button>
+            </aside>
+        </main>
+
+        <footer class="app-footer"></footer>
+    </div>
+
+    <div class="clock-display" id="realtime-clock">00:00</div>
+
+    <div class="modal-overlay" id="end-modal">
+        <div class="modal-card">
+            <h2 id="modal-title">¡Actividad finalizada!</h2>
+            <p id="modal-message"></p>
+            <div class="modal-score-tag" id="modal-score-display">+100 puntos</div>
+            <button class="modal-btn" onclick="location.reload()">Jugar de nuevo</button>
+        </div>
+    </div>
+
+    <div class="floating-notification" id="floating-notification">+100 puntos</div>
+
+    <script src="juegoLudico.js"></script>
+    <script src="js/keys.js"></script>
+</body>
+</html>

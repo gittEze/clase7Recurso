@@ -4,28 +4,28 @@ const grafosData = [
         name: "Grafo 1", 
         vertices: "V = {A,B,C,D,E}", 
         edges: "E = {{A,B},{A,C},{D,E}}", 
-        answers: [true, false, false] 
+        answers: [false, true, false] 
     },
     { 
         id: 2, 
         name: "Grafo 2", 
         vertices: "V = {A,B,C,D,E}", 
         edges: "E = {{A,B},{A,C},{D,E}}", 
-        answers: [true, true, true] 
+        answers: [true, false, false] 
     },
     { 
         id: 3, 
         name: "Grafo 3", 
         vertices: "V = {A,B,C,D,E}", 
         edges: "E = {{A,B},{A,C},{D,E}}", 
-        answers: [false, true, false] 
+        answers: [true, true, true] 
     },
     { 
         id: 4, 
         name: "Grafo 4", 
         vertices: "V = {A,B,C,D,E}", 
         edges: "E = {{A,B},{A,C},{D,E}}", 
-        answers: [true, true, false] 
+        answers: [false, false, false] 
     }
 ];
 

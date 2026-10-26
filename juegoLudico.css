@@ -1,0 +1,331 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background-color: #f1f5f9;
+    color: #0f172a;
+    position: relative;
+}
+
+.app-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 24px;
+    justify-content: space-between;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.app-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0284c7;
+}
+
+.level-indicator {
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: #f0f9ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid #bae6fd;
+    color: #0369a1;
+}
+
+.progress-bar-wrapper {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 6px 0;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    background: #0284c7;
+    transition: width 0.4s ease;
+}
+
+.mission-banner {
+    background: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    border-left: 5px solid #0284c7;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.main-section {
+    flex: 1;
+    display: flex;
+    gap: 16px;
+    margin: 8px 0;
+    min-height: 0;
+}
+
+.graph-card {
+    flex: 3;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#graph-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.control-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.instruction-box, .status-box {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.instruction-box h3 {
+    font-size: 1.05rem;
+    color: #0284c7;
+    margin-bottom: 6px;
+}
+
+.instruction-box p {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.4;
+}
+
+.status-box {
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    color: #ca8a04;
+    background: #fefce8;
+    border-color: #fde047;
+}
+
+.status-box.success {
+    color: #16a34a;
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.continue-btn {
+    background: #94a3b8;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: not-allowed;
+    transition: background 0.2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.continue-btn.active {
+    background: #16a34a;
+    cursor: pointer;
+}
+
+.continue-btn.active:hover {
+    background: #15803d;
+}
+
+.app-footer {
+    text-align: center;
+    padding: 4px;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.footer-hint strong {
+    color: #0284c7;
+}
+
+.clock-display {
+    position: fixed;
+    bottom: 12px;
+    right: 20px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #0369a1;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+    z-index: 50;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #cbd5e1;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-card h2 {
+    font-size: 1.6rem;
+    color: #0284c7;
+    margin-bottom: 12px;
+}
+
+.modal-card p {
+    font-size: 0.95rem;
+    color: #475569;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.modal-score-tag {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #16a34a;
+    margin-bottom: 20px;
+}
+
+.modal-btn {
+    background: #0284c7;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modal-btn:hover {
+    background: #0369a1;
+}
+
+.floating-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #16a34a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 200;
+    pointer-events: none;
+}
+
+.floating-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.edge-hit {
+    stroke: transparent;
+    stroke-width: 24px;
+    cursor: pointer;
+    fill: none;
+}
+
+.edge-visible {
+    stroke: #94a3b8;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    transition: stroke 0.2s;
+}
+
+.edge-hit:hover + .edge-visible, .edge-visible:hover {
+    stroke: #e11d48;
+}
+
+.node-group {
+    cursor: pointer;
+}
+
+.node-circle {
+    fill: #ffffff;
+    stroke: #0284c7;
+    stroke-width: 3px;
+    transition: all 0.2s;
+}
+
+.node-group:hover .node-circle {
+    fill: #e0f2fe;
+    stroke: #0369a1;
+}
+
+.node-circle.selected {
+    fill: #fef08a;
+    stroke: #ca8a04;
+    stroke-width: 4px;
+}
+
+.node-text {
+    fill: #0f172a;
+    font-size: 18px;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+}

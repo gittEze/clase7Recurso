@@ -6,7 +6,12 @@ document.addEventListener('keydown', function(event) {
     }
     
     // Si presionas la tecla "2"
-    if (event.key === '2') {
+    if (event.key === '5') {
         window.location.href = 'juegoLudico.html'; // Cambia por el nombre de tu segundo HTML
+    }
+
+        // Si presionas la tecla "0"
+    if (event.key === '0') {
+        window.location.href = 'index.html'; // Cambia por el nombre de tu segundo HTML
     }
 });
